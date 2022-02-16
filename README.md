@@ -5,4 +5,4 @@ This is all the code I've written in-class for completing Tetrix Bee-Dee-Bot act
 
 ### Dependencies:
 
-(Tetrix prizm library)[https://www.pitsco.com/PRIZM/TETRIX-PRIZM-Robotics-Controller]
+[Tetrix prizm library](https://www.pitsco.com/PRIZM/TETRIX-PRIZM-Robotics-Controller)
