@@ -172,9 +172,13 @@ void driveLeft(PRIZM prizm, int driveSpeed, int driveTime) {
 
 void leaveHighway(PRIZM prizm, int driveSpeed) {
   driveForward(prizm, driveSpeed, DOUBLE_DELAY * 3);
-  moveMotors(prizm, driveSpeed, -driveSpeed / 2, DOUBLE_DELAY);
+  moveMotors(prizm, driveSpeed, -driveSpeed / 4, STANDARD_DELAY);
   
   driveForward(prizm, driveSpeed, DOUBLE_DELAY);
-  moveMotors(prizm, -driveSpeed / 2, driveSpeed, DOUBLE_DELAY);
+  moveMotors(prizm, -driveSpeed / 4, driveSpeed, STANDARD_DELAY);
+
+  // Break for 1 second
+  moveMotors(prizm, 125, 125, DOUBLE_DELAY);
+  
   prizm.PrizmEnd();
 }
