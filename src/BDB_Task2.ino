@@ -22,6 +22,8 @@ void driveRight(PRIZM prizm, int driveSpeed, int driveTime);
 void driveLeft(PRIZM prizm, int driveSpeed, int driveTime);
 void leaveHighway(PRIZM prizm, int driveSpeed);
 
+void safteyDemonstration(PRIZM prizm, char color, int servoNum, int driveSpeed, int driveTime);
+
 void setup() {
   prizmObj.PrizmBegin();
   Serial.begin(9600);
@@ -64,7 +66,10 @@ void loop() {
   //armWave(prizmObj, 1);
 
   // Drive off the highway
-  leaveHighway(prizmObj, 100);
+  //leaveHighway(prizmObj, 100);
+
+  // Demonstrate perfect safety
+  safteyDemonstration(prizmObj, 'r', 1, 100, 2);
 
 }
 
@@ -128,7 +133,7 @@ void for_sos(PRIZM prizm, char color) {
   }  
 
   delay(2000);
-  
+  prizm.PrizmEnd();
 }
 
 void moveServo(PRIZM prizm, int servoNum, int deg, int del) {
@@ -181,4 +186,11 @@ void leaveHighway(PRIZM prizm, int driveSpeed) {
   moveMotors(prizm, 125, 125, DOUBLE_DELAY);
   
   prizm.PrizmEnd();
+}
+
+void safteyDemonstration(PRIZM prizm, char color, int servoNum, int driveSpeed, int driveTime) {
+  for_sos(prizm, 'r');  
+  armWave(prizm, 1);
+  driveRight(prizm, 100, DOUBLE_DELAY * 2);
+  
 }
